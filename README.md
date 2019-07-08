@@ -215,13 +215,10 @@ end
 puts uppercase.join(", ")
 ```
 
-<details>
-<summary>How would you explain the difference in the result?</summary>
-<ul>
-  <li><code>.each</code> executes the code block for each item in the original array and returns the original array regardless of what the block returns.</li>
-  <li><code>.map</code> returns a new array with the changes in the block applied to each element.</li>
-</ul>
-</details>
+How would you explain the difference in the result?
+```
+
+```
 
 #### Explore 2
 
@@ -240,10 +237,10 @@ uppercase = cart.map{|product| product.upcase }
 puts uppercase.join(", ")
 ```
 
-<details>
-<summary>What is the difference in the result of these two snippets?</summary>
-Nothing: they have the same result. They are two ways of doing the same thing.
-</details>
+What is the difference in the result of these two snippets?
+```
+
+```
 
 #### Explore 3: Bang
 
@@ -258,10 +255,10 @@ puts uppercase
 
 Below is the same snippet, but with `.map!` instead of `.map`.
 
-<details>
-<summary>What does <code>!</code> often indicate in Ruby?</summary>
-That this method is "dangerous", usually because it will modify, or <strong>mutate</strong> the object upon which it was called.
-</details>
+What does `!` often indicate in Ruby?
+```
+
+```
 
 ```rb
 cart = ["shoes", "watch", "computer"]
@@ -270,10 +267,10 @@ puts cart
 puts uppercase
 ```
 
-<details>
-<summary>What's the difference between <code>.map</code> and <code>.map!</code>?</summary>
-<code>.map</code> leaves the original array alone, whereas <code>.map!</code> changes it.
-</details>
+What's the difference between `.map` and `.map!`?
+```
+
+```
 
 ### Exercise: Practice Map (15 minutes)
 
