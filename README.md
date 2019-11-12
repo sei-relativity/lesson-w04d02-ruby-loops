@@ -153,12 +153,18 @@ Use `each` to do the following...
 
   ```ruby
   names = [ "Donald", "Daisy", "Huey", "Duey", "Luey" ]
+  names.each do |name|
+    p "Hello #{name}"
+  end
   ```
 
 - Print out the squared values of every number in this numbers array.
 
   ```ruby
   numbers = [ 1, 3, 9, 11, 100 ]
+  numbers.each do |num|
+    p num**2
+  end
   ```
 
 - Print out the Celsius values for an array containing Fahrenheit values.
@@ -167,6 +173,9 @@ Use `each` to do the following...
 
   ```ruby
   fahrenheit_temps = [ -128.6, 0, 32, 140, 212 ]
+  fahrenheit_temps.each do |temp|
+    p (temp - 32) * 5 / 9  
+  end
   ```
 
 - Insert all the values in the `artists` array into the `ninja_turtles` array.
@@ -174,6 +183,10 @@ Use `each` to do the following...
   ```ruby
   artists = [ "Leonardo", "Donatello", "Raphael", "Michelangelo" ]
   ninja_turtles = []
+  artists.each do |val|
+    ninja_turtles.push(val)
+  end
+  p ninja_turtles
   ```
 
 - **Bonus:** Print out every possible combination of the below ice cream flavors and toppings.
@@ -181,6 +194,12 @@ Use `each` to do the following...
   ```ruby
   flavors = [ "vanilla", "chocolate", "strawberry", "butter pecan", "cookies and cream", "rainbow" ]
   toppings = [ "gummi bears", "hot fudge", "butterscotch", "rainbow sprinkles", "chocolate sprinkles" ]
+  p flavors.product(toppings)
+  flavors.each do |flav|
+     toppings.each do |top|
+         p "#{flav}, #{top}"
+     end
+  end
   ```
 <details>
   <summary>
@@ -217,7 +236,7 @@ puts uppercase.join(", ")
 
 How would you explain the difference in the result?
 ```
-
+  In the end the value of uppercase didnt change because 'each' doesnt return an array, but map does thats why upper case was changed 
 ```
 
 #### Explore 2
@@ -239,7 +258,7 @@ puts uppercase.join(", ")
 
 What is the difference in the result of these two snippets?
 ```
-
+##Because 'each' doesnt return an array we had to create an empty array first and push the values of the first array into it after using upcase function. But, when using map we didnt have to push it was done automatically because it returns an array by default 
 ```
 
 #### Explore 3: Bang
@@ -257,7 +276,7 @@ Below is the same snippet, but with `.map!` instead of `.map`.
 
 What does `!` often indicate in Ruby?
 ```
-
+It implementchanges the variable its calling 
 ```
 
 ```rb
@@ -269,7 +288,7 @@ puts uppercase
 
 What's the difference between `.map` and `.map!`?
 ```
-
+map needs a variable to store its return in and map! will just change the array thats calling it
 ```
 
 ### Exercise: Practice Map (15 minutes)
@@ -282,13 +301,18 @@ Use `map` to do the following...
   first_names = [ "Donald", "Daisy", "Daffy" ]
 
   #= ["Donald Duck", "Daisy Duck", "Daffy Duck"]
+  first_names.map! do |val|
+    "#{val} Duck"
+  end
   ```
 
 2. Create an array containing the squared values of every number in this array.
 
   ```ruby
   numbers = [ 1, 3, 9, 11, 100 ]
-
+  numbers.map! do |val|
+    val**2
+  end
   # => [1, 9, 81, 121, 10000]
   ```
 
@@ -298,6 +322,9 @@ Use `map` to do the following...
 
   ```ruby
   fahrenheit_temps = [ -128.6, 0, 32, 140, 212 ]
-
+  # fahrenheit_temps.map! do |temp|
+     (temp - 32) * 5 / 9
+  end
+  p fahrenheit_temps
   #=> [-89.2, -17.8, 0, 60, 100]
   ```
